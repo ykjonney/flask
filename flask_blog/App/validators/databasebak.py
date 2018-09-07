@@ -33,7 +33,7 @@ class MetaModel(Model):
              type=sm.ForeignKey(base.id)
           else:
              type=sm.Integer
-       return sm.Cloumn(type,primary_key=True)
+       return sm.Column(type,primary_key=True)
 
     @declared_attr
     def create_at(_):
@@ -60,8 +60,8 @@ class MetaModel(Model):
     def delete(self,commit=True):
        self.deleted_at=datetime.utcnow()
        return commit and self.save()
-def __reference_col(tablename,nullable=False,pk_name=id,**kwargs):
-    return db.Column(db.ForeignKey("{}.{}").format(tablename,pk_name),nullable=nullable,**kwargs)
+def __reference_col(tablename,nullable=False,pk_name='id',**kwargs):
+    return db.Column(db.ForeignKey("{0}.{1}").format(tablename,pk_name),nullable=nullable,**kwargs)
 db =SQLAlchemy(query_class=QueryWithSoftDelete,model_class=MetaModel)
 db.Reference_col=__reference_col
 

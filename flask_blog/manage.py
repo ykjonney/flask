@@ -1,13 +1,19 @@
-from flask_migrate import Migrate,MigrateCommand
-
-from models.user import User
+import redis
+from flask_httpauth import HTTPTokenAuth
+from flask_migrate import MigrateCommand
 from flask_script import Manager
-from app import app
 
-from validators.database import db
+from App.app import create_app
+from App.database import db
+from App.models.user import User
+from App.validators.celery import make_celery
 
-manager=Manager(app=app)
-migrate=Migrate(app,db)
+app=create_app()
+auth = HTTPTokenAuth('flask')
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+celery = make_celery(app)
+manager=Manager(app)
+
 manager.add_command('db',MigrateCommand)
 @manager.command
 def list_ruote():

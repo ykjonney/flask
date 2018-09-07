@@ -1,8 +1,7 @@
 from flask import current_app
-
-from app import redis_client
-
 from itsdangerous import TimedJSONWebSignatureSerializer as Serialize
+
+from flask.ext.blog.App import redis_client
 
 def create_serialize():
     return Serialize(current_app.config['SECRET_KEY'],expires_in=7200)

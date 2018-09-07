@@ -1,8 +1,8 @@
-from validators.database import db
+from App.database import db
 
 
 class User(db.Model):
-    __table__='user'
+    __tablename__='user'
     username=db.Column(db.String(40),nullable=False)
     password=db.Column(db.String(120),nullable=False)
     email=db.Column(db.String(80),nullable=False)

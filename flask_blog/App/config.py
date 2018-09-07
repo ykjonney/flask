@@ -1,0 +1,16 @@
+
+DEBUG=True
+SECRET_KEY='MYKEY'
+# model
+SQLALCHEMY_TRACK_MODIFICATIONS=True
+SQLALCHEMY_DATABASE_URI='mysql+pymysql://jonney:204411@localhost/blog'
+# mail
+MAIL_SERVER='smtp.163.com'
+MAIL_PORT='25'
+MAIL_USERNAME='jonney'
+MAIL_PASSWORD='huyuekai9325'
+# upload
+UPLOAD_EXTESSIONS=['PNG','JPG','JEPG']
+UPLOAD_FLODER='./upload'
+MAX_CONTENT_LENGTH='10*1024*1024'
+REDIS_TOKEN_KEY='redis_token_key'

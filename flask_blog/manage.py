@@ -14,7 +14,7 @@ def list_ruote():
     for route in app.url_map.iter_rules():
         print(route)
 
-@manager.option
+@manager.option('-n','--number',dest='number',default=10)
 def load_user(number):
     for i in range(int(number)):
         user=User(

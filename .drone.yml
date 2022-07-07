@@ -4,6 +4,6 @@ name: test
 
 steps:
   - name:  drone test
-    image: python3.6
+    image: python:3.6-alpine
     commands:
       - echo drone test

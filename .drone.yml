@@ -10,4 +10,4 @@ steps:
   - name: drone second
     image: python:3.6-alpine
     commands:
-      -echo dronesecond
+      - echo dronesecond

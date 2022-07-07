@@ -7,3 +7,7 @@ steps:
     image: python:3.6-alpine
     commands:
       - echo drone test
+  - name: drone second
+    image: python:3.6-alpine
+    commands:
+      -echo dronesecond

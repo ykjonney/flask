@@ -3,7 +3,7 @@ type: docker
 name: test
 
 steps:
-  - name: test
+  - name:  drone test
     image: python3.6
     commands:
       - echo drone test
